@@ -1,0 +1,278 @@
+
+------------------------------------------
+Git hub repo: https://github.com/discover-devops
+
+Installation
+apt-get install git-all
+git --version
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone     Clone a repository into a new directory
+   init      Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add       Add file contents to the index
+   mv        Move or rename a file, a directory, or a symlink
+   restore   Restore working tree files
+   rm        Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect    Use binary search to find the commit that introduced a bug
+   diff      Show changes between commits, commit and working tree, etc
+   grep      Print lines matching a pattern
+   log       Show commit logs
+   show      Show various types of objects
+   status    Show the working tree status
+
+grow, mark and tweak your common history
+   branch    List, create, or delete branches
+   commit    Record changes to the repository
+   merge     Join two or more development histories together
+   rebase    Reapply commits on top of another base tip
+   reset     Reset current HEAD to the specified state
+   switch    Switch branches
+   tag       Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch     Download objects and refs from another repository
+   pull      Fetch from and integrate with another repository or a local branch
+   push      Update remote refs along with associated objects
+
+
+
+git COmmand:
+==============
+
+git + Verb
+
+===========================
+Dated: 10t Feb Class Notes
+---------------------------
+
+Git Bash DownLoad:
+https://git-scm.com/download/win
+
+Linux Instalattion:
+
+apt-get install git-all
+git --version
+
+mkdir my_project
+cd my_project
+git init 
+
+git config --global user.name "devops"
+git config --global user.email "devops@gmail.com"
+git config --global core.editor "notepad"
+git config --list
+
+
+---------------------------
+#1: Crteate a Repo
+
+git init 
+
+GitLab $   git init
+Initialized empty Git repository in /root/my_project/.git/
+GitLab $
+
+GitLab $ ls -la
+total 12
+drwxr-xr-x 3 root root 4096 Feb 10 15:12 .
+drwx------ 5 root root 4096 Feb 10 15:08 ..
+drwxr-xr-x 7 root root 4096 Feb 10 15:12 .git
+GitLab $
+
+
+GitLab $ ls
+mycode.py
+GitLab $
+GitLab $
+GitLab $ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        mycode.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+GitLab $
+
+$ git add mycode.py
+
+
+GitLab $ git add mycode.py
+GitLab $
+GitLab $ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   mycode.py
+
+GitLab $
+
+
+git commit -m "Added a new Python script"
+
+GitLab $ git status
+On branch master
+nothing to commit, working tree clean
+GitLab $
+
+=======================
+
+GitLab $ git commit -m " Added file A"
+[master 415e616]  Added file A
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 fileA.txt
+GitLab $
+
+GitLab $ git log
+commit 415e6165b8686374085186a1d357cb558f938c25 (HEAD -> master)
+Author: devops <devops@gmail.com>
+Date:   Sat Feb 10 17:08:17 2024 +0000
+------------------------------------
+
+GitLab $ git cat-file -p d03ee2e600-----. COMMIT 
+
+tree 9d967c9bd4af43201c57475cafe3cab017081c65
+parent 415e6165b8686374085186a1d357cb558f938c25
+author devops <devops@gmail.com> 1707585127 +0000
+committer devops <devops@gmail.com> 1707585127 +0000
+
+ Added some text  on file A
+GitLab $
+
+
+git cat-file -p 9d967c9b 
+
+GitLab $ git cat-file -p 9d967c9b
+100644 blob f7dd212b9a5caf07688fc3aa9cdc5ecdafbd9322    .gitignore
+100644 blob 3e11fc9606b9d5fe21e771ce70ca3b6d58e6de89    file2.txt
+100644 blob fa4bd6dc887354ed8cef8862e519043bae27ae0b    fileA.txt
+100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391    fileZ.txt
+100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391    myfile.txt
+GitLab $
+
+git cat-file -p  fa4bd6dc8
+9d967c9bd4af43201c57475cafe3cab017081c65
+
+
+1. Introduction to Version Control System
+1.1 What is Version Control
+1.2 How Git Born ??? 
+1.3 What is Git and Rachitecture of Git
+1.4 Git Command Line
+1.5 How to Install  Git
+1.6 Git Setup
+1.7 Getting Help
+
+
+2. Git Concepts and Commnds
+2.1 Getting a Git Repository
+2.2 Recording Changes to the Repository
+2.3 Viewing the Commit History
+2.4 Undoing Things
+
+
+3. Git Branching
+3.1 What/Why of Git Branching
+3.2 Basic Branching and Merging
+3.3 Branch Management
+3.4 Branching Workflows
+3.5 Troubleshooting: Merge Conflict
+3.6 Rebasing
+
+
+4. Remote Git on the Server
+4.1 Git HUB
+4.2 Contributing to a Project
+4.3 Maintaining a Project
+4.4 Setting Up the Server
+4.5 What is GitLab
+4.6 Troubleshooting
+==================
+date 11th Feb calss Notes
+----------------------------
+
+What is Git Branching?
+Branching in Git allows you to diverge from the main line of development and 
+continue working without affecting the main branch. 
+
+It's a powerful concept that enables parallel development, experimentation, and 
+collaboration.
+
+By default when you initilaize the repo : MASTER will get created
+Apart from master branch I can create many other brances. 
+
+1: We were having a MASTER branch 
+2: from the MASTER Br we have created a feature-branch 
+3: Check out to feature-branch
+4: We made some chhhnages in our code 
+5: We are merging this chnage to the MAIN or MASTER branch 
+
+
+Git $ git merge feature-branch
+Updating d03ee2e..2623cee
+Fast-forward
+ new_feature_file.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 new_feature_file.txt
+Git $
+
+
+Git $ git commit -m "Add a new1 feature"
+[feature-branch 9f318ab] Add a new1 feature
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 new1_feature_file.txt
+Git $
+
+
+Git $ git commit -m "Update main branch"
+[master 63072a6] Update main branch
+ 1 file changed, 1 insertion(+)
+Git $
+
+021fdb11c  ------
+
+
+git branch 
+git branch b100 master
+git checkout b100
+-------------------------
+
+
+6d4c1f3
+
+
+Git $  echo "Line from Branch MASTER" > new1_feature_file.txt
+Git $ git add new1_feature_file.txt
+Git $ git commit -m "Add changes from Branch MASTER"
+[master 807d4cd] Add changes from Branch MASTER
+ 1 file changed, 1 insertion(+)
+
+
+Git $ git merge branch-a
+Auto-merging new1_feature_file.txt
+CONFLICT (content): Merge conflict in new1_feature_file.txt
+Automatic merge failed; fix conflicts and then commit the result.
+Git $
+
+
+<<<<<<< HEAD
+Line from Branch MASTER
+=======
+Line from Branch A
+>>>>>>> branch-a
+
+
+git branch -M main
+git remote add origin https://github.com/discover-devops/feb2024.git
+
